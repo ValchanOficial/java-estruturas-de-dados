@@ -74,6 +74,10 @@ public class Main {
 		//--------------------
 		System.out.println(vetorPessoas.indice(p)); //existe no vetor
 		System.out.println(vetorPessoas.indice(pessoaErrada)); //nao existe no vetor
-	}
-	
+		//--------------------
+		vetorPessoas.remover(2);//remove TreinaWeb2
+		System.out.println(vetorPessoas.toString());
+		vetorPessoas.remover(p);
+		System.out.println(vetorPessoas.toString());
+	}	
 }
