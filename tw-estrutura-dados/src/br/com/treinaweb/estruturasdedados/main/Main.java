@@ -1,6 +1,8 @@
 package br.com.treinaweb.estruturasdedados.main;
 
 import java.util.Scanner;
+
+import br.com.treinaweb.estruturasdedados.listasligadas.ListaLigada;
 import br.com.treinaweb.estruturasdedados.modelos.Pessoa;
 import br.com.treinaweb.estruturasdedados.vetores.Vetor;
 
@@ -10,6 +12,7 @@ public class Main {
 		System.out.println("Digite a opção desejada: ");
 		System.out.println("1. Gerenciamento de memória");
 		System.out.println("2. Vetores");
+		System.out.println("3. Lista ligada");
 		Scanner scanner = new Scanner(System.in);
 		int opcao = scanner.nextInt();
 		switch(opcao) {
@@ -19,10 +22,20 @@ public class Main {
 		case 2:
 			fazerVetor();
 			break;
+		case 3:
+			fazerListaLigada();
+			break;
 		}
 		scanner.close();
 	}
 	
+	private static void fazerListaLigada() {
+		ListaLigada<Pessoa> listaPessoas = new ListaLigada<Pessoa>();
+		listaPessoas.inserir(new Pessoa(1, "TreinaWeb 1"));
+		listaPessoas.inserir(new Pessoa(2, "TreinaWeb 2"));
+		System.out.println(listaPessoas.toString());
+	}
+
 	private static void fazerGerenciamentoMemoria() {
 		int a = 3;
 		int b = a;
