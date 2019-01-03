@@ -23,6 +23,52 @@ public class ListaLigada<T> {
 		this.tamanho++;
 	}
 	
+	public void inserirEm(int posicao, T elemento) {
+		if(posicao >= tamanho()) {
+			throw new IllegalArgumentException(String.format("Posicação inválida [%d]", posicao));
+		}
+		if(posicao == 0) {
+			No<T> novoNo = new No<T>(elemento);
+			novoNo.setProximo(this.primeiroNo);
+			this.primeiroNo = novoNo;
+		} else if(posicao == this.tamanho()-1){
+			No<T> novoNo = new No<T>(elemento);
+			this.ultimoNo.setProximo(novoNo);
+			this.ultimoNo = novoNo;
+		} else {
+			No<T> noAnterior = recuperarNo(posicao -1 );
+			No<T> noAtual = recuperarNo(posicao);
+			No<T> novoNo = new No<>(elemento);
+			noAnterior.setProximo(novoNo);
+			novoNo.setProximo(noAtual);
+		}
+		this.tamanho++;
+	}
+	
+	public T recuperar(int posicao) {
+		No<T> no = recuperarNo(posicao);
+		if(no!= null) {
+			return no.getElemento();
+		} else {
+			return null;
+		}
+	}
+	
+	private No<T> recuperarNo(int posicao) {
+		if(posicao >= tamanho()) {
+			throw new IllegalArgumentException(String.format("Posicação inválida [%d]", posicao));
+		}
+		No<T> resultado = null;
+		for(int i=0;i<=posicao;i++) {
+			if(i==0) {
+				resultado = this.primeiroNo;
+			} else {
+				resultado = resultado.getProximo();
+			}
+		}
+		return resultado;
+	}
+	
 	public boolean estaVazia() {
 		return this.tamanho == 0;
 	}

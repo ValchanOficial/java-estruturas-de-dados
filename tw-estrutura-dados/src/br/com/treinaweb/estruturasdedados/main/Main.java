@@ -1,7 +1,6 @@
 package br.com.treinaweb.estruturasdedados.main;
 
 import java.util.Scanner;
-
 import br.com.treinaweb.estruturasdedados.listasligadas.ListaLigada;
 import br.com.treinaweb.estruturasdedados.modelos.Pessoa;
 import br.com.treinaweb.estruturasdedados.vetores.Vetor;
