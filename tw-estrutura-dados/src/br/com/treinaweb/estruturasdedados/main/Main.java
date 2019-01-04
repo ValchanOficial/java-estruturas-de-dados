@@ -32,6 +32,12 @@ public class Main {
 		ListaLigada<Pessoa> listaPessoas = new ListaLigada<Pessoa>();
 		listaPessoas.inserir(new Pessoa(1, "TreinaWeb 1"));
 		listaPessoas.inserir(new Pessoa(2, "TreinaWeb 2"));
+		listaPessoas.inserir(new Pessoa(3, "TreinaWeb 3"));
+		listaPessoas.inserirEm(1, new Pessoa(4, "TreinaWeb 4")); //2 elemento
+		//listaPessoas.inserirEm(0, new Pessoa(5, "TreinaWeb 5")); //1 elemento //primeiro
+		listaPessoas.inserirPrimeiro(new Pessoa(5, "TreinaWeb 5")); //1 elemento //primeiro
+		//listaPessoas.inserirEm(4, new Pessoa(6, "TreinaWeb 6")); //4 elemento(0..4 = 5 elementos) //último
+		listaPessoas.inserirUltimo(new Pessoa(6, "TreinaWeb 6")); //4 elemento(0..4 = 5 elementos) //último
 		System.out.println(listaPessoas.toString());
 	}
 
