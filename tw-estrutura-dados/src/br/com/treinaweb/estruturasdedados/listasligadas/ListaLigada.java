@@ -84,6 +84,26 @@ public class ListaLigada<T> {
 	public int tamanho() {
 		return this.tamanho;
 	}
+	
+	public boolean contem(T elemento) {
+		for(int i=0;i<tamanho();i++) {
+			No<T> noAtual = recuperarNo(i);
+			if(noAtual.getElemento() != null && noAtual.getElemento().equals(elemento)) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	public int indice(T elemento) {
+		for(int i=0;i<tamanho();i++) {
+			No<T> noAtual = recuperarNo(i);
+			if(noAtual.getElemento() != null && noAtual.getElemento().equals(elemento)) {
+				return i;
+			}
+		}
+		return -1;
+	}
 
 	@Override
 	public String toString() {
