@@ -11,7 +11,7 @@ import br.com.treinaweb.estruturasdedados.vetores.Vetor;
 public class Main {
 
 	public static void main(String[] args) {
-		System.out.println("Digite a opçãp desejada: ");
+		System.out.println("Digite a opção desejada: ");
 		System.out.println("1. Gerenciamento de memória");
 		System.out.println("2. Vetores");
 		System.out.println("3. Lista ligada");
