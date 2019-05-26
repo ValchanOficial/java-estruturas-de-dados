@@ -1,6 +1,8 @@
 package br.com.treinaweb.estruturasdedados.main;
 
 import java.util.Scanner;
+
+import br.com.treinaweb.estruturasdedados.listasligadas.ListaDuplamenteLigada;
 import br.com.treinaweb.estruturasdedados.listasligadas.ListaLigada;
 import br.com.treinaweb.estruturasdedados.modelos.Pessoa;
 import br.com.treinaweb.estruturasdedados.vetores.Vetor;
@@ -8,10 +10,11 @@ import br.com.treinaweb.estruturasdedados.vetores.Vetor;
 public class Main {
 
 	public static void main(String[] args) {
-		System.out.println("Digite a opção desejada: ");
-		System.out.println("1. Gerenciamento de memória");
+		System.out.println("Digite a opï¿½ï¿½o desejada: ");
+		System.out.println("1. Gerenciamento de memï¿½ria");
 		System.out.println("2. Vetores");
 		System.out.println("3. Lista ligada");
+		System.out.println("4. Lista deuplamente ligada");
 		Scanner scanner = new Scanner(System.in);
 		int opcao = scanner.nextInt();
 		switch(opcao) {
@@ -24,10 +27,38 @@ public class Main {
 		case 3:
 			fazerListaLigada();
 			break;
+		case 4:
+			fazerListaDuplamenteLigada();
+			break;
 		}
 		scanner.close();
 	}
 	
+	private static void fazerListaDuplamenteLigada() {
+		ListaDuplamenteLigada<Pessoa> listaPessoas = new ListaDuplamenteLigada<Pessoa>();
+		listaPessoas.inserir(new Pessoa(1, "TreinaWeb 1"));
+		listaPessoas.inserir(new Pessoa(2, "TreinaWeb 2"));
+		listaPessoas.inserir(new Pessoa(3, "TreinaWeb 3"));
+		listaPessoas.inserirEm(1, new Pessoa(4, "TreinaWeb 4")); //2 elemento
+		listaPessoas.inserirPrimeiro(new Pessoa(5, "TreinaWeb 5")); //1 elemento //primeiro
+		listaPessoas.inserirUltimo(new Pessoa(6, "TreinaWeb 6")); //4 elemento(0..4 = 5 elementos) //ï¿½ltimo
+		System.out.println(listaPessoas.toString());
+		Pessoa p = listaPessoas.recuperar(1);
+		Pessoa pErrada = new Pessoa(100, "TreinaWeb100");
+		System.out.println(listaPessoas.contem(p));
+		System.out.println(listaPessoas.contem(pErrada));
+		System.out.println(listaPessoas.indice(p));
+		System.out.println(listaPessoas.indice(pErrada));
+		listaPessoas.remover(p);
+		System.out.println(listaPessoas.toString());
+		listaPessoas.remover(0);
+		System.out.println(listaPessoas.toString());
+		System.out.println("Lista de pessoas");
+		for(int i=0;i<listaPessoas.tamanho(); i++) {
+			System.out.println(listaPessoas.recuperar(i).toString());
+		}		
+	}
+
 	private static void fazerListaLigada() {
 		ListaLigada<Pessoa> listaPessoas = new ListaLigada<Pessoa>();
 		listaPessoas.inserir(new Pessoa(1, "TreinaWeb 1"));
@@ -36,8 +67,8 @@ public class Main {
 		listaPessoas.inserirEm(1, new Pessoa(4, "TreinaWeb 4")); //2 elemento
 		//listaPessoas.inserirEm(0, new Pessoa(5, "TreinaWeb 5")); //1 elemento //primeiro
 		listaPessoas.inserirPrimeiro(new Pessoa(5, "TreinaWeb 5")); //1 elemento //primeiro
-		//listaPessoas.inserirEm(4, new Pessoa(6, "TreinaWeb 6")); //4 elemento(0..4 = 5 elementos) //último
-		listaPessoas.inserirUltimo(new Pessoa(6, "TreinaWeb 6")); //4 elemento(0..4 = 5 elementos) //último
+		//listaPessoas.inserirEm(4, new Pessoa(6, "TreinaWeb 6")); //4 elemento(0..4 = 5 elementos) //ï¿½ltimo
+		listaPessoas.inserirUltimo(new Pessoa(6, "TreinaWeb 6")); //4 elemento(0..4 = 5 elementos) //ï¿½ltimo
 		System.out.println(listaPessoas.toString());
 		Pessoa p = listaPessoas.recuperar(1);
 		Pessoa pErrada = new Pessoa(100, "TreinaWeb100");
@@ -68,14 +99,14 @@ public class Main {
 		System.out.println("------------");
 		Pessoa p1 = new Pessoa(1,"TreinaWeb");
 		System.out.println(p1.toString());
-		//Pessoa p2 = p1; //Aponta para a mesma posição de memória //retorna true na comparação
-		Pessoa p2 = new Pessoa(1,"TreinaWeb"); //criando nova posição de memória //retorna false na comparação
+		//Pessoa p2 = p1; //Aponta para a mesma posiï¿½ï¿½o de memï¿½ria //retorna true na comparaï¿½ï¿½o
+		Pessoa p2 = new Pessoa(1,"TreinaWeb"); //criando nova posiï¿½ï¿½o de memï¿½ria //retorna false na comparaï¿½ï¿½o
 		System.out.println(p2.toString());
 		System.out.println("------------");
 		//p2.setNome("TreinaWebModificado");
 		System.out.println(p1.toString());
 		System.out.println(p2.toString());
-		System.out.println(p1==p2); //compara posição na memória
+		System.out.println(p1==p2); //compara posiï¿½ï¿½o na memï¿½ria
 		System.out.println(p1.equals(p2)); //compara valores
 	}
 	
